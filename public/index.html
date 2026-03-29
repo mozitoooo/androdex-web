@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Androdex</title>
+    <meta name="theme-color" content="#0a0f16" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">A</div>
+          <div class="brand-copy">
+            <h1>Androdex</h1>
+            <p>Remote Codex Workspace</p>
+          </div>
+        </div>
+
+        <button id="newThreadBtn" type="button" class="primary">New Thread</button>
+        <div id="threadList" class="thread-list"></div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div id="statusBadge" class="status-badge">Not paired</div>
+          <div class="topbar-actions">
+            <button id="connectSavedBtn" type="button" class="ghost">Connect Saved</button>
+            <button id="resolveTrustedBtn" type="button" class="ghost">Resolve Trusted</button>
+            <button id="disconnectBtn" type="button" class="ghost danger">Disconnect</button>
+          </div>
+        </header>
+
+        <div id="errorText" class="error hidden"></div>
+
+        <section id="onboardingCard" class="panel onboarding">
+          <h2>Pair Your Phone With Laptop</h2>
+          <p>Scan or paste the pairing payload from laptop terminal, enter one-time code, then connect.</p>
+
+          <label for="pairingPayloadInput">Pairing Payload JSON</label>
+          <textarea id="pairingPayloadInput" rows="5" placeholder='{"v":1,"relay":"wss://...","sessionId":"..."}'></textarea>
+
+          <label for="pairingCodeInput">One-time Pairing Code</label>
+          <input id="pairingCodeInput" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="6-digit code" />
+
+          <div class="actions">
+            <button id="startScannerBtn" type="button" class="ghost">Start Camera Scan</button>
+            <button id="stopScannerBtn" type="button" class="ghost">Stop Camera</button>
+            <button id="pairConnectBtn" type="button" class="primary">Pair + Connect</button>
+          </div>
+
+          <video id="qrVideo" autoplay playsinline muted class="qr-video hidden"></video>
+          <div id="scannerHint" class="hint">Camera scan requires HTTPS in most mobile browsers.</div>
+        </section>
+
+        <section id="chatPanel" class="panel chat hidden">
+          <div class="chat-header">
+            <h2 id="activeThreadTitle">No thread selected</h2>
+            <div id="activeThreadId" class="thread-id"></div>
+          </div>
+
+          <div id="messageList" class="messages"></div>
+
+          <div class="composer">
+            <textarea id="promptInput" rows="3" placeholder="Send a message to Codex..."></textarea>
+            <button id="sendPromptBtn" type="button" class="primary">Send</button>
+          </div>
+        </section>
+
+        <section class="panel event-panel">
+          <h2>Event Log</h2>
+          <pre id="eventLog" class="log"></pre>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
