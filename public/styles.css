@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap");
+
+:root {
+  --bg: #05262b;
+  --bg-soft: #0a343b;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-strong: #ffffff;
+  --text: #092227;
+  --muted: #486469;
+  --line: #b9d3d8;
+  --primary: #d96c06;
+  --primary-hover: #b65700;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  background: radial-gradient(120% 120% at 100% 0%, #0f4f59 0%, #0a3b43 35%, var(--bg) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(42px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.bg-orb-a {
+  width: 280px;
+  height: 280px;
+  top: -90px;
+  left: -60px;
+  background: #ffd28f;
+}
+
+.bg-orb-b {
+  width: 340px;
+  height: 340px;
+  bottom: -130px;
+  right: -90px;
+  background: #76cfd6;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 16px 14px 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.hero {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.97) 0%, rgba(234, 246, 248, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  padding: 16px;
+  animation: rise-in 360ms ease-out;
+}
+
+.hero-kicker {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #b7d4da;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0a444d;
+  background: #f2fbfc;
+}
+
+.hero h1 {
+  margin: 10px 0 8px;
+  line-height: 1.16;
+  font-size: 1.38rem;
+}
+
+.hero p {
+  margin: 0;
+  color: #33575d;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  animation: rise-in 420ms ease-out;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+label {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 12px;
+  color: #fff;
+  background: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-muted {
+  background: #62848b;
+}
+
+.btn-muted:hover {
+  background: #4f6d74;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #bfdae0;
+  background: #ecf8fa;
+  font-weight: 600;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+.muted {
+  color: #5f767a;
+}
+
+.qr-video {
+  width: 100%;
+  max-height: 240px;
+  background: #000;
+  border-radius: 10px;
+}
+
+.hint {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+}
+
+.approval-item {
+  border: 1px dashed #b2cfd5;
+  border-radius: 10px;
+  padding: 8px;
+  background: #f8fdfe;
+}
+
+.approval-title {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.approval-body {
+  font-size: 0.88rem;
+  color: #4f6a6f;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+
+.log {
+  margin: 0;
+  border-radius: 10px;
+  border: 1px solid #1e4b56;
+  background: #082933;
+  color: #d3f2f6;
+  min-height: 180px;
+  max-height: 280px;
+  overflow: auto;
+  padding: 10px;
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.79rem;
+  line-height: 1.45;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 720px) {
+  .app {
+    padding-top: 22px;
+  }
+}
+
